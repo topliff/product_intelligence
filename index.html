@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Intelligence — A Discipline for the AI Era</title>
+  <meta name="description" content="Product Intelligence is a discipline for guiding leverage well. For individuals, teams, and leaders designing work intentionally in the AI era.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --blue: #2721a8;
+      --blue-light: #3a34b8;
+      --purple: #524ca8;
+      --purple-muted: #8a85b8;
+      --bg: #fafafa;
+      --bg-alt: #f4f3f8;
+      --text: #1a1a2e;
+      --text-secondary: #4a4a5e;
+      --text-light: #6e6e82;
+      --white: #ffffff;
+      --border: #e8e7f0;
+      --max-width: 820px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(250, 250, 250, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s ease;
+    }
+
+    nav.scrolled {
+      box-shadow: 0 1px 8px rgba(39, 33, 168, 0.06);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--blue);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-logo span {
+      color: var(--purple-muted);
+      font-weight: 400;
+    }
+
+    .nav-cta {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--blue);
+      border: 1.5px solid var(--blue);
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    /* ── Sections ── */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 10rem 2rem 6rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero .container {
+      max-width: 780px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--blue);
+      letter-spacing: -0.025em;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    .hero-sub .lead {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .hero-sub p {
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-sub .spaced-lines {
+      margin: 1.8rem 0;
+    }
+
+    .hero-sub .spaced-lines span {
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-sub .closing {
+      margin-top: 2rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .hero-buttons {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-block;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 500;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: none;
+      letter-spacing: -0.005em;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-light);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(39, 33, 168, 0.2);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--blue);
+      border: 1.5px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--blue);
+      background: rgba(39, 33, 168, 0.03);
+    }
+
+    /* ── Section headings ── */
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--purple-muted);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+    }
+
+    .section-body {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .section-body p {
+      margin-bottom: 1.3rem;
+    }
+
+    .section-body strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .section-body em.standout {
+      font-style: normal;
+      color: var(--blue);
+      font-weight: 500;
+    }
+
+    /* ── Lists ── */
+    .section-body ul {
+      list-style: none;
+      margin: 1.5rem 0;
+      padding: 0;
+    }
+
+    .section-body ul li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-body ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.65rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--purple-muted);
+    }
+
+    /* ── Alternate backgrounds ── */
+    .bg-alt {
+      background: var(--bg-alt);
+    }
+
+    /* ── Divider ── */
+    .section-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--border);
+      margin: 0 auto;
+    }
+
+    /* ── Diagram ── */
+    .diagram-container {
+      margin: 3rem 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .diagram {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .diagram-node {
+      padding: 0.65rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .diagram-node.tools {
+      background: var(--bg-alt);
+      color: var(--text-light);
+      border: 1px solid var(--border);
+    }
+
+    .diagram-node.pi {
+      background: var(--blue);
+      color: var(--white);
+      box-shadow: 0 2px 12px rgba(39, 33, 168, 0.15);
+    }
+
+    .diagram-node.outcome {
+      background: var(--bg-alt);
+      color: var(--text-light);
+      border: 1px solid var(--border);
+    }
+
+    .diagram-arrow {
+      color: var(--purple-muted);
+      font-size: 1rem;
+    }
+
+    /* ── Poetic lines (teams section) ── */
+    .poetic-lines {
+      margin: 1.8rem 0;
+      padding-left: 1rem;
+      border-left: 2px solid var(--border);
+    }
+
+    .poetic-lines span {
+      display: block;
+      margin-bottom: 0.35rem;
+      color: var(--text-secondary);
+    }
+
+    /* ── Session details ── */
+    .session-details {
+      margin: 2.5rem 0;
+      padding: 2rem;
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .session-details ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .session-details ul li {
+      padding: 0.55rem 0;
+      padding-left: 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+    }
+
+    .session-details ul li::before {
+      display: none;
+    }
+
+    .session-details ul li:last-child {
+      border-bottom: none;
+    }
+
+    .session-details .detail-label {
+      min-width: 100px;
+      font-weight: 500;
+      color: var(--text);
+      font-size: 0.85rem;
+    }
+
+    /* ── Mindset items ── */
+    .mindset-list {
+      margin: 2rem 0;
+    }
+
+    .mindset-list span {
+      display: block;
+      margin-bottom: 0.4rem;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    /* ── CTA section ── */
+    .cta-section {
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+
+    .cta-section h2 {
+      color: var(--blue);
+    }
+
+    .cta-section .join-options {
+      margin: 2rem 0;
+      font-size: 1rem;
+      color: var(--text-secondary);
+    }
+
+    .cta-section .join-options span {
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .cta-buttons {
+      margin-top: 2.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 3.5rem 2rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-line {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      font-style: italic;
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-sub {
+      font-size: 0.92rem;
+      color: var(--text-light);
+    }
+
+    .footer-copy {
+      margin-top: 2rem;
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+
+    /* ── Modal ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 26, 46, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 200;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2.5rem;
+      max-width: 480px;
+      width: 100%;
+      position: relative;
+      box-shadow: 0 24px 64px rgba(39, 33, 168, 0.12);
+    }
+
+    .modal h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
+    }
+
+    .modal p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      color: var(--text-light);
+      cursor: pointer;
+      padding: 0.25rem;
+      line-height: 1;
+    }
+
+    .modal-close:hover {
+      color: var(--text);
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color 0.2s ease;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--purple);
+    }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    .form-note {
+      margin-top: 1rem;
+      font-size: 0.78rem;
+      color: var(--text-light);
+      text-align: center;
+    }
+
+    .form-success {
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    .form-success .check {
+      width: 48px;
+      height: 48px;
+      background: var(--bg-alt);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: var(--blue);
+      font-size: 1.4rem;
+    }
+
+    .form-success h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-success p {
+      margin-bottom: 0;
+    }
+
+    /* ── Animations ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      section {
+        padding: 4rem 1.5rem;
+      }
+
+      .hero {
+        padding: 8rem 1.5rem 4rem;
+        min-height: auto;
+      }
+
+      .hero-buttons,
+      .cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        text-align: center;
+      }
+
+      .diagram {
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+
+      .diagram-arrow {
+        transform: rotate(90deg);
+      }
+
+      .session-details ul li {
+        flex-direction: column;
+        gap: 0.15rem;
+      }
+
+      .nav-inner {
+        padding: 0.9rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">Product Intelligence <span>/ Discipline</span></div>
+      <a href="#interested" class="nav-cta" data-modal="interest">I'm Interested</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container fade-in">
+      <h1>Bring Product Intelligence to the Work That Matters</h1>
+      <div class="hero-sub">
+        <p class="lead">We are all product managers now.</p>
+        <p>
+          Not because our titles changed &mdash;<br>
+          but because AI has expanded what each of us can design, decide, and influence.
+        </p>
+        <div class="spaced-lines">
+          <span>More tools.</span>
+          <span>More leverage.</span>
+          <span>More responsibility.</span>
+        </div>
+        <p>
+          Product Intelligence is a discipline for guiding that leverage well.
+        </p>
+        <p>
+          It's how individuals, teams, and leaders design work intentionally in the AI era.
+        </p>
+        <p class="closing">
+          You don't need the title.<br>
+          You need the discipline.
+        </p>
+      </div>
+      <div class="hero-buttons">
+        <a href="#interested" class="btn btn-primary" data-modal="interest">I'm Interested</a>
+        <a href="#beta" class="btn btn-secondary" data-modal="beta">Join the Beta Cohort</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Shift -->
+  <section class="bg-alt">
+    <div class="container fade-in">
+      <div class="section-label">The Shift</div>
+      <h2>The AI Era Didn't Replace Judgment.<br>It Raised the Bar for It.</h2>
+      <div class="section-body">
+        <p>Intelligent tools can generate ideas, draft strategies, and simulate scenarios.</p>
+        <p>But they don't understand:</p>
+        <ul>
+          <li>Your organization's history</li>
+          <li>Political nuance</li>
+          <li>Real tradeoffs across teams</li>
+          <li>What happens when priorities shift</li>
+          <li>What should be said out loud &mdash; and when</li>
+        </ul>
+        <p>Only humans do that.</p>
+        <p><em class="standout">Product Intelligence turns possibility into progress.</em></p>
+      </div>
+      <div class="diagram-container">
+        <div class="diagram">
+          <div class="diagram-node tools">AI Tools</div>
+          <div class="diagram-arrow">&rarr;</div>
+          <div class="diagram-node pi">Product Intelligence</div>
+          <div class="diagram-arrow">&rarr;</div>
+          <div class="diagram-node outcome">Progress</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Is Product Intelligence? -->
+  <section>
+    <div class="container fade-in">
+      <div class="section-label">The Discipline</div>
+      <h2>Product Intelligence Is a Discipline.</h2>
+      <div class="section-body">
+        <p>Product Intelligence is the discipline of:</p>
+        <ul>
+          <li>Defining value clearly</li>
+          <li>Understanding who your work affects</li>
+          <li>Making thoughtful tradeoffs</li>
+          <li>Aligning with strategy</li>
+          <li>Adapting when goals move</li>
+          <li>Using AI without outsourcing judgment</li>
+        </ul>
+        <p>It applies whether you're shaping policy, leading a rollout, running operations, or collaborating with AI on complex work.</p>
+        <p>This is not about job titles.</p>
+        <p><strong>It's about capability.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- For Individuals -->
+  <section class="bg-alt">
+    <div class="container fade-in">
+      <div class="section-label">For Individuals</div>
+      <h2>For Professionals Who Want to Grow</h2>
+      <div class="section-body">
+        <p>In the AI era, execution alone isn't enough.</p>
+        <p>Professionals who stand out are those who:</p>
+        <ul>
+          <li>Clarify value before acting</li>
+          <li>Ask better questions</li>
+          <li>Make visible tradeoffs</li>
+          <li>Adjust intelligently when priorities shift</li>
+          <li>Use AI without losing their judgment</li>
+        </ul>
+        <p>Product Intelligence strengthens how you think &mdash; not just what you produce.</p>
+        <p>It helps you move from reactive to intentional.</p>
+        <p>That's not just better work.<br><strong>That's career maturity.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- For Teams -->
+  <section>
+    <div class="container fade-in">
+      <div class="section-label">For Teams</div>
+      <h2>For Teams Who Want Shared Clarity</h2>
+      <div class="section-body">
+        <p>No single person holds all the capabilities required to guide work well.</p>
+        <div class="poetic-lines">
+          <span>One person sees possibility.</span>
+          <span>Another hears nuance.</span>
+          <span>Another prioritizes.</span>
+          <span>Another executes clearly.</span>
+          <span>Another challenges assumptions.</span>
+        </div>
+        <p>Product Intelligence emerges when those strengths are coordinated &mdash; and supported.</p>
+        <p>Small teams (5&ndash;8 people) gain something powerful: <strong>shared language and shared judgment.</strong></p>
+        <p>That alignment moves real initiatives forward.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- For Leaders -->
+  <section class="bg-alt">
+    <div class="container fade-in">
+      <div class="section-label">For Leaders</div>
+      <h2>For Leaders Who Want Better Outcomes</h2>
+      <div class="section-body">
+        <p>Leaders often see the symptoms:</p>
+        <ul>
+          <li>Smart teams working hard but misaligned</li>
+          <li>AI investments that don't translate into performance</li>
+          <li>Initiatives that start strong and fade quietly</li>
+        </ul>
+        <p>Product Intelligence builds internal capability &mdash; not dependency on vendors or tools.</p>
+        <p>It strengthens how your organization thinks, prioritizes, and adapts.</p>
+        <div class="mindset-list">
+          <span>HR with a product mindset.</span>
+          <span>IT with a product mindset.</span>
+          <span>Finance with a product mindset.</span>
+        </div>
+        <p>Not as a title &mdash; <strong>as a discipline.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What This Session Is -->
+  <section>
+    <div class="container fade-in">
+      <div class="section-label">The Session</div>
+      <h2>This Is a Starting Point &mdash;<br>Not a Shortcut.</h2>
+      <div class="section-body">
+        <p>One workshop will not transform an organization.</p>
+        <p>But it can change how you see your work &mdash;<br>and how your team approaches value, tradeoffs, and AI.</p>
+        <p>In this live session, you will:</p>
+        <ul>
+          <li>Apply the Product Intelligence lens to a real initiative</li>
+          <li>Clarify value and stakeholder impact</li>
+          <li>Surface hidden assumptions</li>
+          <li>Identify where leadership support matters</li>
+          <li>Leave with practical next steps</li>
+        </ul>
+        <p>This is not theory.</p>
+        <p><strong>It's applied disciplined thinking.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Invitation / CTA -->
+  <section class="bg-alt cta-section" id="register">
+    <div class="container fade-in">
+      <div class="section-label">Join Us</div>
+      <h2>Interested in Bringing Product Intelligence<br>to Your Work?</h2>
+      <div class="join-options">
+        <span>Join as an individual contributor,</span>
+        <span>a team lead,</span>
+        <span>or a small team (5&ndash;8 people) working on a shared initiative.</span>
+      </div>
+      <div class="session-details">
+        <ul>
+          <li><span class="detail-label">Format</span> Live virtual session</li>
+          <li><span class="detail-label">Duration</span> 90&ndash;120 minutes</li>
+          <li><span class="detail-label">Prework</span> Strengths &amp; reflection prework included</li>
+          <li><span class="detail-label">Cohort</span> Limited to 8&ndash;20 participants</li>
+          <li><span class="detail-label">Investment</span> $250 per participant</li>
+        </ul>
+      </div>
+      <div class="cta-buttons">
+        <a href="#beta" class="btn btn-primary" data-modal="beta">Join the Beta Cohort</a>
+        <a href="#interested" class="btn btn-secondary" data-modal="interest">Notify Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p class="footer-line">We are all product managers now.</p>
+    <p class="footer-sub">The difference is whether we practice the discipline.</p>
+    <p class="footer-copy">&copy; 2026 Product Intelligence. All rights reserved.</p>
+  </footer>
+
+  <!-- Interest Modal -->
+  <div class="modal-overlay" id="modal-interest">
+    <div class="modal">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <div id="interest-form-container">
+        <h3>I'm Interested</h3>
+        <p>Leave your details and we'll notify you when the next cohort opens.</p>
+        <form id="interest-form">
+          <div class="form-group">
+            <label for="interest-name">Name</label>
+            <input type="text" id="interest-name" name="name" required placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label for="interest-email">Email</label>
+            <input type="email" id="interest-email" name="email" required placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label for="interest-role">Your Role</label>
+            <select id="interest-role" name="role">
+              <option value="">Select one...</option>
+              <option value="ic">Individual Contributor</option>
+              <option value="manager">Manager / Team Lead</option>
+              <option value="leader">Director / VP / Executive</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">Notify Me</button>
+        </form>
+        <p class="form-note">No spam. We'll reach out when the next session is scheduled.</p>
+      </div>
+      <div id="interest-success" class="form-success" style="display:none;">
+        <div class="check">&#10003;</div>
+        <h4>You're on the list.</h4>
+        <p>We'll be in touch when the next cohort opens.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Beta Modal -->
+  <div class="modal-overlay" id="modal-beta">
+    <div class="modal">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <div id="beta-form-container">
+        <h3>Join the Beta Cohort</h3>
+        <p>Register your interest for the upcoming live session. Limited to 8&ndash;20 participants.</p>
+        <form id="beta-form">
+          <div class="form-group">
+            <label for="beta-name">Name</label>
+            <input type="text" id="beta-name" name="name" required placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label for="beta-email">Email</label>
+            <input type="email" id="beta-email" name="email" required placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label for="beta-org">Organization (optional)</label>
+            <input type="text" id="beta-org" name="organization" placeholder="Company or team name">
+          </div>
+          <div class="form-group">
+            <label for="beta-type">Joining As</label>
+            <select id="beta-type" name="type" required>
+              <option value="">Select one...</option>
+              <option value="individual">Individual</option>
+              <option value="team-lead">Team Lead</option>
+              <option value="small-team">Small Team (5-8 people)</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">Register for Beta</button>
+        </form>
+        <p class="form-note">$250 per participant. You won't be charged until the cohort is confirmed.</p>
+      </div>
+      <div id="beta-success" class="form-success" style="display:none;">
+        <div class="check">&#10003;</div>
+        <h4>You're registered.</h4>
+        <p>We'll confirm details and next steps via email shortly.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Modal logic
+    function openModal(id) {
+      document.getElementById('modal-' + id).classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(overlay) {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Open modals from buttons
+    document.querySelectorAll('[data-modal]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal(btn.dataset.modal);
+      });
+    });
+
+    // Close modals
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModal(overlay);
+      });
+      overlay.querySelector('.modal-close').addEventListener('click', () => {
+        closeModal(overlay);
+      });
+    });
+
+    // Escape key closes modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.active').forEach(closeModal);
+      }
+    });
+
+    // Form submissions
+    document.getElementById('interest-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.getElementById('interest-form-container').style.display = 'none';
+      document.getElementById('interest-success').style.display = 'block';
+    });
+
+    document.getElementById('beta-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.getElementById('beta-form-container').style.display = 'none';
+      document.getElementById('beta-success').style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>
